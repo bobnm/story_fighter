@@ -1,6 +1,10 @@
 StoryFighter::Application.routes.draw do
+  get "static_pages/home"
+  get "static_pages/help"
   resources :plot_pieces
   resources :random_plot
+
+  root "static_pages#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
