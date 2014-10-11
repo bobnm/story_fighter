@@ -5,6 +5,7 @@ class RandomPlotController < ApplicationController
 	end
 
 	def show
+		@story_post = StoryPost.new
 		@plot_pieces = PlotPiece.find(PlotPiece.pluck(:id).shuffle(random: Random.new(params[:id].to_i))[0..4])
 	end
 end

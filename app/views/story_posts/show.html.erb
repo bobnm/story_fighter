@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @story_post.title %></h1>
+<p>投稿者：<%= @story_post.name %></p>
+
+<% @story_post.content.each do |content| %>
+	<p><%= content %></p>
+<% end %>
