@@ -1,5 +1,5 @@
 class StoryPostsController < ApplicationController
-	before_action :set_story_post, only: [:show, :destroy]
+	before_action :set_story_post, only: [:show, :destroy, :update]
 
 	def index
 		@story_posts = StoryPost.all
@@ -20,13 +20,21 @@ class StoryPostsController < ApplicationController
 	def show
 	end
 
+	def update
+		if @story_post.update(story_post_params)
+			redirect_to @story_post, notice: 'Your Like added'
+		else
+			render "static_pages/home"
+		end
+	end
+
 private
 	def set_story_post
 		@story_post = StoryPost.find(params[:id])
 	end
 
 	def story_post_params
-		params.require(:story_post).permit(:title, :name, content: [], plots: [])
+		params.require(:story_post).permit(:title, :name, :like, content: [], plots: [])
 	end
 end
 
