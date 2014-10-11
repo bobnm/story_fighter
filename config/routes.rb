@@ -3,7 +3,7 @@ StoryFighter::Application.routes.draw do
   get "static_pages/help"
   resources :plot_pieces
   resources :random_plot
-  resources :story_posts, only: [:create, :destroy, :show]
+  resources :story_posts, only: [:create, :destroy, :index, :show]
 
   root "static_pages#home"
 

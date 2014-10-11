@@ -1,6 +1,10 @@
 class StoryPostsController < ApplicationController
 	before_action :set_story_post, only: [:show, :destroy]
 
+	def index
+		@story_posts = StoryPost.all
+	end
+
 	def create
 		@story_post = StoryPost.new(story_post_params)
 		if @story_post.save
