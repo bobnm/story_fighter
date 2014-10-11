@@ -3,7 +3,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>タイトル</th><th>投稿者</th>
+			<th>タイトル</th><th>投稿者</th><th>いいね！</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -11,6 +11,7 @@
 		<tr>
 			<td><%= link_to story_post.title, story_post %></td>
 			<td><%= story_post.name %></td>
+			<td><%= story_post.like.to_i %></td>
 		</tr>
 <% end %>
 	</tbody>
