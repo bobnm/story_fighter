@@ -22,7 +22,7 @@ private
 	end
 
 	def story_post_params
-		params.require(:story_post).permit(:title, :name, content: [])
+		params.require(:story_post).permit(:title, :name, content: [], plots: [])
 	end
 end
 
