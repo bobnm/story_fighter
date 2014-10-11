@@ -1,0 +1,33 @@
+<h1>Listing conventions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Plots</th>
+      <th>Write limit</th>
+      <th>Like limit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conventions.each do |convention| %>
+      <tr>
+        <td><%= convention.title %></td>
+        <td><%= convention.plots %></td>
+        <td><%= convention.write_limit %></td>
+        <td><%= convention.like_limit %></td>
+        <td><%= link_to 'Show', convention %></td>
+        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
+        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Convention', new_convention_path %>

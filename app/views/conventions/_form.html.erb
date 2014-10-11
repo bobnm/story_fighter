@@ -1,0 +1,38 @@
+<%= form_for(@convention) do |f| %>
+  <% if @convention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@convention.errors.count, "error") %> prohibited this convention from being saved:</h2>
+
+      <ul>
+      <% @convention.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :plots %><br>
+	<% @convention.plots.each do |plot| %>
+		<%= f.text_area :plots, name:'convention[plots][]', value:plot %>
+	<% end %>
+	<br>
+	Add Plot:<br>
+	<%= f.text_area :plots, name:'convention[plots][]', value:'' %>
+  </div>
+  <div class="field">
+    <%= f.label :write_limit %><br>
+    <%= f.date_select :write_limit %>
+  </div>
+  <div class="field">
+    <%= f.label :like_limit %><br>
+    <%= f.date_select :like_limit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

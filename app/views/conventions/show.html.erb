@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @convention.title %>
+</p>
+
+<p>
+  <strong>Plots:</strong>
+  <%= @convention.plots %>
+</p>
+
+<p>
+  <strong>Write limit:</strong>
+  <%= @convention.write_limit %>
+</p>
+
+<p>
+  <strong>Like limit:</strong>
+  <%= @convention.like_limit %>
+</p>
+
+<%= link_to 'Edit', edit_convention_path(@convention) %> |
+<%= link_to 'Back', conventions_path %>

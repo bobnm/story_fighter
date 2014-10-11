@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011144757) do
+ActiveRecord::Schema.define(version: 20141011161132) do
+
+  create_table "conventions", force: true do |t|
+    t.string   "title"
+    t.text     "plots"
+    t.date     "write_limit"
+    t.date     "like_limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "plot_pieces", force: true do |t|
     t.string   "content"

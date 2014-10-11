@@ -1,4 +1,6 @@
 StoryFighter::Application.routes.draw do
+  resources :conventions
+
   get "static_pages/home"
   get "static_pages/help"
   resources :plot_pieces
