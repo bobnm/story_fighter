@@ -1,0 +1,27 @@
+<h1>Listing plot_pieces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plot_pieces.each do |plot_piece| %>
+      <tr>
+        <td><%= plot_piece.content %></td>
+        <td><%= link_to 'Show', plot_piece %></td>
+        <td><%= link_to 'Edit', edit_plot_piece_path(plot_piece) %></td>
+        <td><%= link_to 'Destroy', plot_piece, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plot piece', new_plot_piece_path %>

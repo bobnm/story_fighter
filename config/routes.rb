@@ -1,4 +1,7 @@
 StoryFighter::Application.routes.draw do
+  resources :plot_pieces
+  resources :random_plot
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
