@@ -10,6 +10,6 @@
 
 <%= form_for(@story_post) do |f| %>
 	<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
-	<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like %></p>
+	<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
 <% end %>
 
