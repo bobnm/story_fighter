@@ -1,5 +1,7 @@
 StoryFighter::Application.routes.draw do
   resources :conventions
+  match "conventions/:id/entry", :controller => :conventions, :action => :entry, :via => :get,
+	  :as => "entry_convention"
 
   get "static_pages/home"
   get "static_pages/help"

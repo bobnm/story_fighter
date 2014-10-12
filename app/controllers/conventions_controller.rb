@@ -1,5 +1,5 @@
 class ConventionsController < ApplicationController
-  before_action :set_convention, only: [:show, :edit, :update, :destroy]
+  before_action :set_convention, only: [:show, :edit, :update, :destroy, :entry]
 
   # GET /conventions
   # GET /conventions.json
@@ -59,6 +59,11 @@ class ConventionsController < ApplicationController
       format.html { redirect_to conventions_url }
       format.json { head :no_content }
     end
+  end
+
+  def entry
+	@story_post = StoryPost.new
+	@plot_pieces = PlotPiecesHelper.from_convention(@convention)
   end
 
   private

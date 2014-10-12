@@ -20,5 +20,7 @@
   <%= @convention.like_limit %>
 </p>
 
+<%= link_to 'この大会に参加する', entry_convention_path(@convention) %> |
+
 <%= link_to 'Edit', edit_convention_path(@convention) %> |
 <%= link_to 'Back', conventions_path %>
