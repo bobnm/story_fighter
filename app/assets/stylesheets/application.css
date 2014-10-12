@@ -12,11 +12,13 @@
  *= require_tree .
  */
 body {
-	margin: 20px 50px;
+	margin: 20px 50px 150px 50px;
+	width: 450px;
 }
 @media screen and (max-device-width: 480px) {
 	body {
-		margin: 20px 10px;
+		margin: 20px 10px 150px 10px;
+		width: auto;
 	}
 }
 
@@ -25,7 +27,12 @@ h1 {
 }
 
 input {
-	width: 98%;
+	width: 99%;
+}
+@media screen and (max-device-width: 480px) {
+	input {
+		width: 97%;
+	}
 }
 textarea {
 	width: 99%;
