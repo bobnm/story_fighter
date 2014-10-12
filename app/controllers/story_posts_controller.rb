@@ -21,8 +21,7 @@ class StoryPostsController < ApplicationController
 	end
 
 	def update
-		if @story_post.convention.like_limit != nil &&
-				@story_post.convention.like_limit < DateTime.now
+		if !ApplicationHelper.can_like(@story_post.convention)
 			redirect_to @story_post, notice: 'いいね投稿締め切りを過ぎています。'
 			return
 		end

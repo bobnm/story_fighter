@@ -13,7 +13,7 @@
 </p>
 
 <% if @story_post.convention %>
-	<% if @story_post.convention.like_limit >= DateTime.now %>
+	<% if ApplicationHelper.can_like(@story_post.convention) %>
 		<%= form_for(@story_post) do |f| %>
 			<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
 			<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
