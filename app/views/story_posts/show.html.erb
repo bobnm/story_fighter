@@ -12,8 +12,19 @@
 <%= @story_post.convention ? link_to("大会参加したストーリーです[#{@story_post.convention.title}]", @story_post.convention) : "練習投稿ストーリーです" %>
 </p>
 
-<%= form_for(@story_post) do |f| %>
-	<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
-	<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
+<% if @story_post.convention %>
+	<% if @story_post.convention.like_limit >= DateTime.now %>
+		<%= form_for(@story_post) do |f| %>
+			<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
+			<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
+		<% end %>
+	<% else %>
+		<p>いいね投稿締め切りを過ぎています。<%= @story_post.like.to_i %></p>
+	<% end %>
+<% else %>
+	<%= form_for(@story_post) do |f| %>
+		<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
+		<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
+	<% end %>
 <% end %>
 

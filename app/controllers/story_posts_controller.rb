@@ -21,10 +21,14 @@ class StoryPostsController < ApplicationController
 	end
 
 	def update
+		if @story_post.convention.like_limit < DateTime.now
+			redirect_to @story_post, notice: 'いいね投稿締め切りを過ぎています。'
+			return
+		end
 		if @story_post.update(story_post_params)
 			redirect_to @story_post, notice: 'Your Like added'
 		else
-			render "static_pages/home"
+			redirect_to @story_post, notice: 'failed'
 		end
 	end
 
