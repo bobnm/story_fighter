@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011221212) do
+ActiveRecord::Schema.define(version: 20141012015448) do
 
   create_table "conventions", force: true do |t|
     t.string   "title"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141011221212) do
     t.datetime "updated_at"
     t.text     "plots"
     t.integer  "like"
+    t.integer  "convention_id"
   end
 
 end

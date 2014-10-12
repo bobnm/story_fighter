@@ -62,7 +62,7 @@ class ConventionsController < ApplicationController
   end
 
   def entry
-	@story_post = StoryPost.new
+	@story_post = @convention.story_posts.create
 	@plot_pieces = PlotPiecesHelper.from_convention(@convention)
   end
 

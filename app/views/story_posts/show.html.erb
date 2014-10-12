@@ -8,6 +8,10 @@
 	<p><%= plot %></p>
 <% end %>
 
+<p>
+<%= @story_post.convention ? link_to("大会参加したストーリーです[#{@story_post.convention.title}]", @story_post.convention) : "練習投稿ストーリーです" %>
+</p>
+
 <%= form_for(@story_post) do |f| %>
 	<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
 	<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
