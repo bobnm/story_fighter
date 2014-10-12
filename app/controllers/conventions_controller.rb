@@ -40,15 +40,15 @@ class ConventionsController < ApplicationController
   # PATCH/PUT /conventions/1
   # PATCH/PUT /conventions/1.json
   def update
-    respond_to do |format|
-      if @convention.update(convention_params)
-        format.html { redirect_to @convention, notice: 'Convention was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @convention.errors, status: :unprocessable_entity }
-      end
-    end
+	  respond_to do |format|
+		  if @convention.update(convention_params)
+			  format.html { redirect_to @convention, notice: 'Convention was successfully updated.' }
+			  format.json { head :no_content }
+		  else
+			  format.html { render action: 'edit' }
+			  format.json { render json: @convention.errors, status: :unprocessable_entity }
+		  end
+	  end
   end
 
   # DELETE /conventions/1
@@ -70,6 +70,7 @@ class ConventionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_convention
       @convention = Convention.find(params[:id])
+	  @convention.plots.reject!{|x| x == ""}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
