@@ -7,7 +7,7 @@
 	</ul>
 	<%= f.text_area :content, name: 'story_post[content][]', value:'', placeholder: "下の状況になる以前のストーリーや前提を書いてね" %>
 	<% @plot_pieces.each do |plot_piece| %>
-		<h2><%= plot_piece.content %></h2>
+		<p><%= plot_piece.content %></p>
 		<%= f.hidden_field :plots, name: 'story_post[plots][]', value: plot_piece.content %>
 		<%= f.text_area :content, name: 'story_post[content][]', value:'', placeholder: "上の状況と下の状況の間をつなぐストーリーを書いてね" %>
 	<% end %>
