@@ -16,7 +16,7 @@ body {
 }
 @media screen and (max-device-width: 480px) {
 	body {
-		margin: 20px 5px;
+		margin: 20px 10px;
 	}
 }
 
@@ -25,8 +25,9 @@ h1 {
 }
 
 input {
-	width: 99%;
+	width: 98%;
 }
 textarea {
 	width: 99%;
+	height: 150px;
 }
