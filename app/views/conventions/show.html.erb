@@ -24,3 +24,22 @@
 
 <%= link_to 'Edit', edit_convention_path(@convention) %> |
 <%= link_to 'Back', conventions_path %>
+
+<h1>大会参加ストーリー一覧</h1>
+<table>
+	<thead>
+		<tr>
+			<th>タイトル</th><th>投稿者</th><th>いいね！</th>
+		</tr>
+	</thead>
+	<tbody>
+<% @convention.story_posts.each do |story_post| %>
+		<tr>
+			<td><%= link_to story_post.title, story_post %></td>
+			<td><%= story_post.name %></td>
+			<td><%= story_post.like.to_i %></td>
+		</tr>
+<% end %>
+	</tbody>
+</table>
+
