@@ -1,16 +1,6 @@
 <h1>プロット[ID: <%= params[:id] %>]<h1>
 
-<%= form_for(@story_post) do |f| %>
-	<p>投稿者：<%= f.text_field :name, placeholder: "あなたの名前を書いてください" %></p>
-	<%= f.text_area :content, name: 'story_post[content][]', value:'', placeholder: "下の状況になる以前のストーリーや前提を書いてね" %>
-	<% @plot_pieces.each do |plot_piece| %>
-		<p><%= plot_piece.content %></p>
-		<%= f.hidden_field :plots, name: 'story_post[plots][]', value: plot_piece.content %>
-		<%= f.text_area :content, name: 'story_post[content][]', value:'', placeholder: "上の状況と下の状況の間をつなぐストーリーを書いてね" %>
-	<% end %>
-	<p>タイトル：<%= f.text_field :title, placeholder: "書いたストーリーにふさわしいタイトルをつけてみよう" %></p>
-	<%= f.submit %>
-<% end %>
+<%= render 'form' %>
 <hr>
 <%= form_for(@convention) do |f| %> 
 	<%= f.hidden_field :title, value: params[:id] %>
