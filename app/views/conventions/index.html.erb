@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Plots</th>
       <th>Write limit</th>
       <th>Like limit</th>
       <th></th>
@@ -17,7 +16,6 @@
     <% @conventions.each do |convention| %>
       <tr>
         <td><%= convention.title %></td>
-        <td><%= convention.plots %></td>
         <td><%= convention.write_limit %></td>
         <td><%= convention.like_limit %></td>
         <td><%= link_to 'Show', convention %></td>
