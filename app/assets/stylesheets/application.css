@@ -11,3 +11,20 @@
  *= require_self
  *= require_tree .
  */
+body {
+	margin: 20px 50px;
+}
+@media screen and (max-device-width: 480px) {
+	margin: 20px 0;
+}
+
+h1 {
+	font-size: 140%;
+}
+
+input {
+	width: 99%;
+}
+textarea {
+	width: 99%;
+}
