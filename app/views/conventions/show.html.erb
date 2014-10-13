@@ -20,7 +20,11 @@
   <%= @convention.like_limit %>
 </p>
 
-<%= link_to 'この大会に参加する', entry_convention_path(@convention) %> |
+<% if ApplicationHelper.can_write(@convention) %>
+	<%= link_to 'この大会に参加する', entry_convention_path(@convention) %> |
+<% else %>
+	大会参加締め切りを過ぎています |
+<% end %>
 
 <%= link_to 'Edit', edit_convention_path(@convention) %> |
 <%= link_to 'Back', conventions_path %>
