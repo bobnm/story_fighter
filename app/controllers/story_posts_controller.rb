@@ -15,6 +15,8 @@ class StoryPostsController < ApplicationController
 	end
 
 	def destroy
+		@story_post.destroy
+		redirect_to story_posts_url
 	end
 
 	def show

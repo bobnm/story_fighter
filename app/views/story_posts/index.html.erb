@@ -3,7 +3,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>タイトル</th><th>投稿者</th><th>いいね！</th>
+			<th>タイトル</th><th>投稿者</th><th>いいね！</th><th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,6 +12,7 @@
 			<td><%= link_to story_post.title, story_post %></td>
 			<td><%= story_post.name %></td>
 			<td><%= story_post.like.to_i %></td>
+			<td><%= link_to 'Delete', story_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 <% end %>
 	</tbody>
