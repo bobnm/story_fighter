@@ -1,12 +1,12 @@
 class StoryPostsController < ApplicationController
 	before_action :set_story_post, only: [:show, :destroy, :update, :edit, :like]
+	before_action :create_story_post, only: [:create]
 
 	def index
 		@story_posts = StoryPost.all
 	end
 
 	def create
-		@story_post = StoryPost.new(story_post_params)
 		if @story_post.save
 			redirect_to @story_post, notice: 'Story was successfully posted.'
 		else
@@ -60,9 +60,17 @@ private
 	def set_story_post
 		@story_post = StoryPost.find(params[:id])
 	end
+	def create_story_post
+		if params[:convention_id]
+			convention = Convention.find(params[:convention_id])
+			@story_post = convention.story_posts.create(story_post_params)
+		else
+			@story_post = StoryPost.new(story_post_params)
+		end
+	end
 
 	def story_post_params
-		params.require(:story_post).permit(:title, :name, :like, content: [], plots: [])
+		params.require(:story_post).permit(:title, :name, :like, :convention_id, content: [], plots: [])
 	end
 end
 
