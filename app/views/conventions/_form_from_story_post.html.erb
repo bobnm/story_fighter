@@ -1,0 +1,7 @@
+<%= form_for(@convention) do |f| %> 
+	<%= f.hidden_field :title, value: params[:id] %>
+	<% @story_post.plots.each do |plot| %>
+		<%= f.hidden_field :plots, name: "convention[plots][]", value: plot %>
+	<% end %>
+	<%= f.submit value: "このプロットで大会を作る" %>
+<% end %>

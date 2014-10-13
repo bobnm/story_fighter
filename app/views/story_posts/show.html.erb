@@ -21,10 +21,20 @@
 	<% else %>
 		<p>いいね投稿締め切りを過ぎています。<%= @story_post.like.to_i %></p>
 	<% end %>
+	<% if ApplicationHelper.can_write(@story_post.convention) %>
+		<%= link_to '編集', edit_story_post_path(@story_post) %>
+	<% else %>
+		<p>ストーリー修正締め切りを過ぎています。</p>
+	<% end %>
 <% else %>
 	<%= form_for(@story_post) do |f| %>
 		<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
 		<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
 	<% end %>
+	<%= link_to '編集', edit_story_post_path(@story_post) %>
+	<%= render "conventions/form_from_story_post" %>
+	<%= link_to "同じプロットでストーリーを新規に投稿する", copy_story_post_path(@story_post) %>
 <% end %>
+
+<%= link_to "Back", story_posts_path %>
 

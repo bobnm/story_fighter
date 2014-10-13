@@ -7,7 +7,9 @@ StoryFighter::Application.routes.draw do
   get "static_pages/help"
   resources :plot_pieces
   resources :random_plot
-  resources :story_posts, only: [:create, :destroy, :index, :show, :update]
+  resources :story_posts, only: [:create, :destroy, :index, :show, :update, :edit]
+  match "story_posts/:id/copy", :controller => :story_posts, :action => :copy, :via => :get,
+	  :as => "copy_story_post"
 
   root "static_pages#home"
 
