@@ -1,4 +1,62 @@
-<h1>Listing conventions</h1>
+<h1>投稿待ちの大会</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Write limit</th>
+      <th>Like limit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conventions.each do |convention| %>
+	<% next unless ApplicationHelper.can_write(convention) %>
+      <tr>
+        <td><%= convention.title %></td>
+        <td><%= convention.write_limit %></td>
+        <td><%= convention.like_limit %></td>
+        <td><%= link_to 'Show', convention %></td>
+        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
+        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>いいね待ちの大会</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Write limit</th>
+      <th>Like limit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conventions.each do |convention| %>
+	<% next unless ApplicationHelper.can_like(convention) %>
+      <tr>
+        <td><%= convention.title %></td>
+        <td><%= convention.write_limit %></td>
+        <td><%= convention.like_limit %></td>
+        <td><%= link_to 'Show', convention %></td>
+        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
+        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>すべての大会</h1>
 
 <table>
   <thead>
