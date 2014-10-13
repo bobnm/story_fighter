@@ -1,5 +1,5 @@
 class StoryPostsController < ApplicationController
-	before_action :set_story_post, only: [:show, :destroy, :update]
+	before_action :set_story_post, only: [:show, :destroy, :update, :edit]
 
 	def index
 		@story_posts = StoryPost.all
@@ -18,17 +18,38 @@ class StoryPostsController < ApplicationController
 	end
 
 	def show
+		@convention = Convention.new
+	end
+
+	def edit
+	end
+
+	def copy
+		@story_post = StoryPost.new
+		@story_post.plots = StoryPost.find(params[:id]).plots
 	end
 
 	def update
-		if !ApplicationHelper.can_like(@story_post.convention)
-			redirect_to @story_post, notice: 'いいね投稿締め切りを過ぎています。'
-			return
-		end
-		if @story_post.update(story_post_params)
-			redirect_to @story_post, notice: 'Your Like added'
+		if params[:commit] == "いいね！"
+			if !ApplicationHelper.can_like(@story_post.convention)
+				redirect_to @story_post, notice: 'いいね投稿締め切りを過ぎています。'
+				return
+			end
+			if @story_post.update(story_post_params)
+				redirect_to @story_post, notice: 'Your Like added'
+			else
+				redirect_to @story_post, notice: 'like failed'
+			end
 		else
-			redirect_to @story_post, notice: 'failed'
+			if !ApplicationHelper.can_write(@story_post.convention)
+				redirect_to @story_post, notice: 'ストーリー投稿締め切りを過ぎています。'
+				return
+			end
+			if @story_post.update(story_post_params)
+				redirect_to @story_post, notice: 'Your Story updated'
+			else
+				redirect_to @story_post, notice: 'like failed'
+			end
 		end
 	end
 
