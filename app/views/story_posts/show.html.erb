@@ -14,8 +14,7 @@
 
 <% if @story_post.convention %>
 	<% if ApplicationHelper.can_like(@story_post.convention) %>
-		<%= form_for(@story_post) do |f| %>
-			<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
+		<%= form_for(@story_post, :url => {:action => 'like'}) do |f| %>
 			<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
 		<% end %>
 	<% else %>
@@ -27,8 +26,7 @@
 		<p>ストーリー修正締め切りを過ぎています。</p>
 	<% end %>
 <% else %>
-	<%= form_for(@story_post) do |f| %>
-		<%= f.hidden_field :like, value:@story_post.like.to_i + 1 %>
+	<%= form_for(@story_post, :url => {:action => 'like'}) do |f| %>
 		<p><%= f.submit value: "いいね！" %>&nbsp;<%= @story_post.like.to_i %></p>
 	<% end %>
 	<%= link_to '編集', edit_story_post_path(@story_post) %>

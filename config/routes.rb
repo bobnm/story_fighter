@@ -10,6 +10,8 @@ StoryFighter::Application.routes.draw do
   resources :story_posts, only: [:create, :destroy, :index, :show, :update, :edit]
   match "story_posts/:id/copy", :controller => :story_posts, :action => :copy, :via => :get,
 	  :as => "copy_story_post"
+  match "story_posts/:id/like", :controller => :story_posts, :action => :like, :via => :patch,
+	  :as => "like_story_post"
 
   root "static_pages#home"
 
