@@ -6,9 +6,6 @@
       <th>Title</th>
       <th>Write limit</th>
       <th>Like limit</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -16,12 +13,9 @@
     <% @conventions.each do |convention| %>
 	<% next unless ApplicationHelper.can_write(convention) %>
       <tr>
-        <td><%= convention.title %></td>
+        <td><%= link_to convention.title, convention %></td>
         <td><%= convention.write_limit %></td>
         <td><%= convention.like_limit %></td>
-        <td><%= link_to 'Show', convention %></td>
-        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
-        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,9 +29,6 @@
       <th>Title</th>
       <th>Write limit</th>
       <th>Like limit</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -45,12 +36,9 @@
     <% @conventions.each do |convention| %>
 	<% next unless ApplicationHelper.can_like(convention) %>
       <tr>
-        <td><%= convention.title %></td>
+        <td><%= link_to convention.title, convention %></td>
         <td><%= convention.write_limit %></td>
         <td><%= convention.like_limit %></td>
-        <td><%= link_to 'Show', convention %></td>
-        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
-        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -65,20 +53,17 @@
       <th>Write limit</th>
       <th>Like limit</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @conventions.each do |convention| %>
       <tr>
-        <td><%= convention.title %></td>
+        <td><%= link_to convention.title, convention %></td>
         <td><%= convention.write_limit %></td>
         <td><%= convention.like_limit %></td>
-        <td><%= link_to 'Show', convention %></td>
-        <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
-        <td><%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Edit', edit_convention_path(convention) %><br>
+			<%= link_to 'Destroy', convention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
