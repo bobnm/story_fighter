@@ -6,8 +6,13 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= simple_format(@convention.description) %>
+</p>
+
+<p>
   <strong>Plots:</strong>
-  <%= @convention.plots %>
+  <%= simple_format(@convention.plots.join("\n")) %>
 </p>
 
 <p>

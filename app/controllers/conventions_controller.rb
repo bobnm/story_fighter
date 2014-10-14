@@ -75,6 +75,6 @@ class ConventionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def convention_params
-      params.require(:convention).permit(:title, :write_limit, :like_limit, plots: [])
+      params.require(:convention).permit(:title, :description, :write_limit, :like_limit, plots: [])
     end
 end
