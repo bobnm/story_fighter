@@ -4,7 +4,7 @@
 <p>投稿者：<%= @story_post.name %></p>
 
 <% @story_post.content.zip(@story_post.plots).each do |content, plot| %>
-	<p><%= content %></p>
+	<p><%= simple_format(content) %></p>
 	<p><%= plot %></p>
 <% end %>
 
