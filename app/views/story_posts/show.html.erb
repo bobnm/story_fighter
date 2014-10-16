@@ -5,7 +5,7 @@
 
 <% @story_post.content.zip(@story_post.plots).each do |content, plot| %>
 	<p><%= simple_format(content) %></p>
-	<p><%= plot %></p>
+	<p class="plot"><%= plot %></p>
 <% end %>
 
 <p>

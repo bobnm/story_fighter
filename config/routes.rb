@@ -1,4 +1,6 @@
 StoryFighter::Application.routes.draw do
+  resources :information
+
   resources :conventions
   match "conventions/:id/entry", :controller => :conventions, :action => :entry, :via => :get,
 	  :as => "entry_convention"

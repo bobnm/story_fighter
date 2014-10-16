@@ -1,6 +1,11 @@
-<h1><%= image_tag "title.jpg", alt: "Super Story Fighter II Turbo", width: "100%" %></h1>
+<p><%= image_tag "title.jpg", alt: "Super Story Fighter II Turbo", width: "100%" %></p>
 <p>ランダムに生成されるプロットをつなぐストーリーを考えてください。</p>
 <p>まずは<%= link_to "練習問題", "random_plot/" %>にチャレンジ！</p>
+
+<% unless @informations.empty? %>
+	<h1>お知らせ</h1>
+	<%= render "information/currents" %>
+<% end %>
 
 <p><%= link_to "現在開催中の大会はこちら", conventions_path %></p>
 
@@ -8,4 +13,6 @@
 
 <p><%= link_to "ヘルプ", "static_pages/help/" %></p>
 
+<hr>
 <p><%= link_to "プロットピース管理", plot_pieces_path %></p>
+<p><%= link_to "お知らせ管理", information_index_path %></p>

@@ -1,0 +1,6 @@
+<% @informations.each do |information| %>
+	<div class="information">
+		<h2><%= information.title %></h2>
+		<p><%= simple_format(information.content) %></p>
+	</div>
+<% end %>
