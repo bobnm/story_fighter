@@ -1,6 +1,7 @@
 <%= form_for(@story_post) do |f| %>
 	<p>投稿者：<%= f.text_field :name, placeholder: "あなたの名前を書いてください" %></p>
-	<%= f.text_area :content, name: 'story_post[content][]', value:'', placeholder: "下の状況になる以前のストーリーや前提を書いてね" %>
+	<% content = @story_post.content.shift %>
+	<%= f.text_area :content, name: 'story_post[content][]', value: content, placeholder: "下の状況になる以前のストーリーや前提を書いてね" %>
 	<% @story_post.plots.zip(@story_post.content).each do |plot, content| %>
 		<p><%= plot %></p>
 		<%= f.hidden_field :plots, name: 'story_post[plots][]', value: plot %>
