@@ -1,4 +1,4 @@
-<% @informations.each do |information| %>
+<% @informations.reverse.each do |information| %>
 	<div class="information">
 		<h2><%= information.title %></h2>
 		<p><%= simple_format(information.content) %></p>
